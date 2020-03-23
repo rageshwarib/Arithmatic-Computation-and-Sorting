@@ -1,7 +1,10 @@
 #!/bin/bash -x
 #Program to computes different arithmatic expressions and sort the result
 
+#Vaiables
+temp=0
 declare -A arithmaticDictionary
+declare -a arithmaticArray
 
 #Take input from user
 read -p "Enter first number: " Number1
@@ -19,3 +22,10 @@ arithmaticDictionary[1]=$result1
 arithmaticDictionary[2]=$result2
 arithmaticDictionary[3]=$result3
 arithmaticDictionary[4]=$result4
+
+#To store the elements of dictionary in Array
+for value in ${!arithmaticDictionary[@]}
+do
+	arithmaticArray[$value]="${arithmaticDictionary[$value]}"
+done
+echo "Array:: ${arithmaticArray[@]}"
