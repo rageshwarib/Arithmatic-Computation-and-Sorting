@@ -30,7 +30,7 @@ do
 done
 echo "Array:: ${arithmaticArray[@]}"
 
-# Sort the elements of an Array in descending order
+# Sort the elements of an Array in Descending order
 for first in ${!arithmaticArray[@]}
 do
 	for second in ${!arithmaticArray[@]}
@@ -44,3 +44,18 @@ do
 	done
 done
 echo "Sorted array in Descending order ::" ${arithmaticArray[@]}
+
+# Sort the elements in array in Ascending order
+for first in ${!arithmaticArray[@]}
+do
+	for second in ${!arithmaticArray[@]}
+	do
+		if ((`echo "${arithmaticArray[$first]}<${arithmaticArray[$second]}" | bc -q`==1))
+		then
+			temp="${arithmaticArray[$first]}"
+			arithmaticArray[$first]="${arithmaticArray[$second]}"
+			arithmaticArray[$second]=$temp
+		fi
+	done
+done
+echo "Sorted array in Ascending order ::" ${arithmaticArray[@]}
