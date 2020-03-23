@@ -8,3 +8,4 @@ read -p "Enter third number: " Number3
 
 #Computations
 result1=`echo "scale=2 ; $Number1+$Number2*$Number3" | bc -l`
+result2=`echo "scale=2 ; $Number1*$Number2+$Number3" | bc -l` 
