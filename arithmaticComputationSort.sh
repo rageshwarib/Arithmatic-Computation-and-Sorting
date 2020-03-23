@@ -29,3 +29,18 @@ do
 	arithmaticArray[$value]="${arithmaticDictionary[$value]}"
 done
 echo "Array:: ${arithmaticArray[@]}"
+
+# Sort the elements of an Array in descending order
+for first in ${!arithmaticArray[@]}
+do
+	for second in ${!arithmaticArray[@]}
+	do
+		if ((`echo "${arithmaticArray[$first]}>${arithmaticArray[$second]}" | bc -q`==1))
+		then
+			temp="${arithmaticArray[$first]}"
+			arithmaticArray[$first]="${arithmaticArray[$second]}"
+			arithmaticArray[$second]=$temp
+		fi
+	done
+done
+echo "Sorted array in Descending order ::" ${arithmaticArray[@]}
